@@ -101,22 +101,6 @@ body {
   color: var(--primary);
 }
 
-/* Login */
-.login {
-  max-width: 350px;
-  margin: 80px auto;
-  background: var(--card);
-  padding: 25px;
-  border-radius: 10px;
-  text-align: center;
-}
-
-.login input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-}
-
 /* Footer */
 .footer {
   text-align: center;
@@ -139,17 +123,8 @@ body {
   </div>
 </div>
 
-<!-- LOGIN -->
-<div class="login" id="loginBox">
-  <h2>Login</h2>
-  <input type="text" id="username" placeholder="Username">
-  <input type="password" id="password" placeholder="Password">
-  <button class="btn" onclick="login()">Login</button>
-  <p id="error" style="color:red;"></p>
-</div>
-
 <!-- HOME -->
-<div id="home" class="section">
+<div id="home" class="section active">
   <div class="hero">
     <h1>Welcome to Maram English Academy 🎓</h1>
     <p>Learn English easily with structured courses</p>
@@ -213,18 +188,6 @@ body {
 </div>
 
 <script>
-function login() {
-  let user = document.getElementById("username").value;
-  let pass = document.getElementById("password").value;
-
-  if (user === "Maram" && pass === "maram1234") {
-    document.getElementById("loginBox").style.display = "none";
-    showPage("home");
-  } else {
-    document.getElementById("error").innerText = "Wrong username or password";
-  }
-}
-
 function showPage(page) {
   document.querySelectorAll(".section").forEach(sec => sec.classList.remove("active"));
   document.getElementById(page).classList.add("active");
