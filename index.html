@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Premium Platform</title>
+<title>Maram English Academy</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -12,7 +12,6 @@
   --bg: #f7f9fa;
   --card: #ffffff;
   --text: #1c1d1f;
-  --muted: #6a6f73;
   --primary: #a435f0;
 }
 
@@ -20,22 +19,16 @@ body.dark {
   --bg: #121212;
   --card: #1e1e1e;
   --text: #ffffff;
-  --muted: #aaaaaa;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
 }
 
 body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
   background: var(--bg);
   color: var(--text);
-  transition: 0.3s;
 }
 
+/* Header */
 .header {
   display: flex;
   justify-content: space-between;
@@ -44,56 +37,49 @@ body {
   color: white;
 }
 
-.toggle {
-  cursor: pointer;
-}
-
-/* Login */
-.login {
-  max-width: 350px;
-  margin: 100px auto;
-  background: var(--card);
-  padding: 30px;
-  border-radius: 10px;
-  text-align: center;
-  animation: fade 0.8s;
-}
-
-.login input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-}
-
-.btn {
-  background: var(--primary);
+.nav a {
   color: white;
-  border: none;
-  padding: 12px;
+  margin-left: 20px;
   cursor: pointer;
-  width: 100%;
-  border-radius: 6px;
-  transition: 0.2s;
 }
 
-.btn:hover {
-  transform: scale(1.03);
-}
-
-/* Dashboard */
-.dashboard {
+/* Sections */
+.section {
   display: none;
 }
 
-.hero {
-  text-align: center;
-  padding: 50px 20px;
-  animation: fade 1s;
+.active {
+  display: block;
 }
 
-.pricing {
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  font-size: 38px;
+}
+
+.hero p {
+  color: gray;
+}
+
+/* Button */
+.btn {
+  background: var(--primary);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Cards */
+.features, .pricing {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
   gap: 20px;
   padding: 20px;
 }
@@ -104,7 +90,6 @@ body {
   border-radius: 10px;
   text-align: center;
   transition: 0.3s;
-  animation: fadeUp 0.6s;
 }
 
 .card:hover {
@@ -112,27 +97,33 @@ body {
 }
 
 .price {
-  font-size: 30px;
-  margin: 10px 0;
+  font-size: 28px;
   color: var(--primary);
 }
 
+/* Login */
+.login {
+  max-width: 350px;
+  margin: 80px auto;
+  background: var(--card);
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.login input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+/* Footer */
 .footer {
   text-align: center;
   padding: 20px;
-  margin-top: 40px;
   background: #1c1d1f;
   color: white;
-}
-
-@keyframes fade {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-@keyframes fadeUp {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
+  margin-top: 40px;
 }
 </style>
 </head>
@@ -141,63 +132,85 @@ body {
 
 <div class="header">
   <div>Maram English Academy</div>
-  <div class="toggle" onclick="toggleDark()">🌙</div>
+  <div class="nav">
+    <a onclick="showPage('home')">Home</a>
+    <a onclick="showPage('subscriptions')">Subscriptions</a>
+    <a onclick="toggleDark()">🌙</a>
+  </div>
 </div>
 
-<!-- Login -->
+<!-- LOGIN -->
 <div class="login" id="loginBox">
   <h2>Login</h2>
   <input type="text" id="username" placeholder="Username">
   <input type="password" id="password" placeholder="Password">
-  <button class="btn sound-btn" onclick="login()">Login</button>
+  <button class="btn" onclick="login()">Login</button>
   <p id="error" style="color:red;"></p>
 </div>
 
-<!-- Dashboard -->
-<div class="dashboard" id="dashboard">
-
+<!-- HOME -->
+<div id="home" class="section">
   <div class="hero">
-    <h1>Welcome,To Maram English Academy!</h1>
+    <h1>Welcome to Maram English Academy 🎓</h1>
+    <p>Learn English easily with structured courses</p>
+    <button class="btn" onclick="showPage('subscriptions')">View Courses</button>
+  </div>
+
+  <div class="features">
+    <div class="card">
+      <h3>Beginner Friendly</h3>
+      <p>Start from zero</p>
+    </div>
+
+    <div class="card">
+      <h3>Structured Learning</h3>
+      <p>Step-by-step courses</p>
+    </div>
+
+    <div class="card">
+      <h3>Affordable</h3>
+      <p>Plans for everyone</p>
+    </div>
+  </div>
+</div>
+
+<!-- SUBSCRIPTIONS -->
+<div id="subscriptions" class="section">
+  <div class="hero">
+    <h1>Our Courses</h1>
     <p>Select your plan</p>
   </div>
 
   <div class="pricing">
-
     <div class="card">
-      <h3>Starter English Course</h3>
+      <h3>Starter Course</h3>
       <div class="price">$10</div>
-      <button class="btn sound-btn" onclick="pay()">Pay</button>
+      <button class="btn" onclick="pay()">Pay</button>
     </div>
 
     <div class="card">
-      <h3>Standard English Course</h3>
+      <h3>Standard Course</h3>
       <div class="price">$50</div>
-      <button class="btn sound-btn" onclick="pay()">Pay</button>
+      <button class="btn" onclick="pay()">Pay</button>
     </div>
 
     <div class="card">
-      <h3>Premium English Course</h3>
+      <h3>Premium Course</h3>
       <div class="price">$100</div>
-      <button class="btn sound-btn" onclick="pay()">Pay</button>
+      <button class="btn" onclick="pay()">Pay</button>
     </div>
 
     <div class="card">
-      <h3>Ultimate English Course</h3>
+      <h3>Ultimate Course</h3>
       <div class="price">$250</div>
-      <button class="btn sound-btn" onclick="pay()">Pay</button>
+      <button class="btn" onclick="pay()">Pay</button>
     </div>
-
   </div>
-
-  <div class="footer">
-    Secure payments via PayPal
-  </div>
-
 </div>
 
-<!-- SOUND FILES -->
-<audio id="hoverSound" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
-<audio id="clickSound" src="https://www.soundjay.com/buttons/sounds/button-09.mp3"></audio>
+<div class="footer">
+  © 2026 Maram English Academy
+</div>
 
 <script>
 function login() {
@@ -206,41 +219,24 @@ function login() {
 
   if (user === "Maram" && pass === "maram1234") {
     document.getElementById("loginBox").style.display = "none";
-    document.getElementById("dashboard").style.display = "block";
+    showPage("home");
   } else {
     document.getElementById("error").innerText = "Wrong username or password";
   }
 }
 
+function showPage(page) {
+  document.querySelectorAll(".section").forEach(sec => sec.classList.remove("active"));
+  document.getElementById(page).classList.add("active");
+}
+
 function pay() {
-  playClick();
-  setTimeout(() => {
-    window.location.href = "https://wa.me/message/XHRG4VHBTBZ4H1";
-  }, 150);
+  window.location.href = "https://wa.me/message/XHRG4VHBTBZ4H1";
 }
 
 function toggleDark() {
   document.body.classList.toggle("dark");
 }
-
-/* SOUND LOGIC */
-const hoverSound = document.getElementById("hoverSound");
-const clickSound = document.getElementById("clickSound");
-
-function playHover() {
-  hoverSound.currentTime = 0;
-  hoverSound.play();
-}
-
-function playClick() {
-  clickSound.currentTime = 0;
-  clickSound.play();
-}
-
-document.querySelectorAll(".sound-btn").forEach(btn => {
-  btn.addEventListener("mouseenter", playHover);
-  btn.addEventListener("click", playClick);
-});
 </script>
 
 </body>
