@@ -188,8 +188,8 @@ body {
   box-shadow: var(--shadow-md);
 }
 
-/* Udemy-style course thumbnail (gradient banner) */
-.card::before {
+/* Udemy-style course thumbnail (gradient banner for features) */
+.features .card::before {
   content: '';
   display: block;
   height: 162px;
@@ -204,16 +204,12 @@ body {
   background: linear-gradient(135deg, #ce2b8f 0%, #a02070 100%);
 }
 
-.pricing .card:nth-child(2)::before {
-  background: linear-gradient(135deg, #5624d0 0%, #401b9c 100%);
-}
-
-.pricing .card:nth-child(3)::before {
-  background: linear-gradient(135deg, #ce2b8f 0%, #a02070 100%);
-}
-
-.pricing .card:nth-child(4)::before {
-  background: linear-gradient(135deg, #1e1d1f 0%, #3d3d3d 100%);
+/* Pricing card thumbnail image */
+.pricing .card img {
+  width: 100%;
+  height: 162px;
+  object-fit: cover;
+  display: block;
 }
 
 .card h3 {
@@ -311,24 +307,28 @@ body {
 
   <div class="pricing">
     <div class="card">
+      <img src="assets/img/starter.png" alt="Starter Course">
       <h3>Starter Course</h3>
       <div class="price">$10</div>
       <button class="btn" onclick="pay()">Buy</button>
     </div>
 
     <div class="card">
+      <img src="assets/img/standard.png" alt="Standard Course">
       <h3>Standard Course</h3>
       <div class="price">$50</div>
       <button class="btn" onclick="pay()">Buy</button>
     </div>
 
     <div class="card">
+      <img src="assets/img/premium.png" alt="Premium Course">
       <h3>Premium Course</h3>
       <div class="price">$100</div>
       <button class="btn" onclick="pay()">Buy</button>
     </div>
 
     <div class="card">
+      <img src="assets/img/ultimate.png" alt="Ultimate Course">
       <h3>Ultimate Course</h3>
       <div class="price">$250</div>
       <button class="btn" onclick="pay()">Buy</button>
