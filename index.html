@@ -12,13 +12,38 @@
   --bg: #f7f9fa;
   --card: #ffffff;
   --text: #1c1d1f;
+  --text-secondary: #6a6f73;
   --primary: #a435f0;
+  --primary-dark: #8710d8;
+  --header-bg: #ffffff;
+  --header-text: #1c1d1f;
+  --header-hover: rgba(0,0,0,0.08);
+  --footer-bg: #1c1d1f;
+  --border-light: rgba(0,0,0,0.06);
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 28px rgba(0,0,0,0.12);
+  --radius: 12px;
+  --content-max: 1240px;
 }
 
 body.dark {
-  --bg: #121212;
+  --bg: #0f0f0f;
   --card: #1e1e1e;
-  --text: #ffffff;
+  --text: #e8e8e8;
+  --text-secondary: #9d9d9d;
+  --header-bg: #000000;
+  --header-text: #ffffff;
+  --header-hover: rgba(255,255,255,0.1);
+  --footer-bg: #000000;
+  --border-light: rgba(255,255,255,0.08);
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 28px rgba(0,0,0,0.5);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -26,42 +51,66 @@ body {
   font-family: 'Inter', sans-serif;
   background: var(--bg);
   color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* HEADER */
+/* ── HEADER (Udemy-style sticky nav) ── */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 25px;
-  background: #1c1d1f;
-  color: white;
+  padding: 0 24px;
+  height: 80px;
+  background: var(--header-bg);
+  color: var(--header-text);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 0 var(--border-light);
 }
 
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .logo-container img {
-  width: 45px;
-  height: 45px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
+  border-radius: 50%;
 }
 
 .logo-container span {
-  font-weight: 600;
-  font-size: 18px;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: -0.02em;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .nav a {
-  color: white;
-  margin-left: 20px;
+  color: var(--header-text);
+  padding: 8px 14px;
   cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 4px;
+  transition: background 0.15s;
+  text-decoration: none;
 }
 
-/* SECTIONS */
+.nav a:hover {
+  background: var(--header-hover);
+}
+
+/* ── SECTION TOGGLE ── */
 .section {
   display: none;
 }
@@ -70,62 +119,143 @@ body {
   display: block;
 }
 
-/* HERO */
+/* ── HERO ── */
 .hero {
   text-align: center;
-  padding: 80px 20px;
+  padding: 80px 24px 48px;
+  max-width: var(--content-max);
+  margin: 0 auto;
 }
 
 .hero h1 {
-  font-size: 38px;
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin: 0 0 12px;
 }
 
 .hero p {
-  color: gray;
+  color: var(--text-secondary);
+  font-size: 18px;
+  margin: 0 0 32px;
 }
 
-/* BUTTON */
+/* ── BUTTON (Udemy-style pill) ── */
 .btn {
   background: var(--primary);
   color: white;
-  padding: 12px 20px;
+  padding: 12px 24px;
   border: none;
-  border-radius: 8px;
+  border-radius: 4px;
   cursor: pointer;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  transition: background 0.15s;
+  display: inline-block;
 }
 
-/* CARDS */
+.btn:hover {
+  background: var(--primary-dark);
+}
+
+/* ── CARD GRID (Udemy-style course grid) ── */
 .features, .pricing {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-  gap: 20px;
-  padding: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(270px,1fr));
+  gap: 24px;
+  padding: 0 24px 56px;
+  max-width: var(--content-max);
+  margin: 0 auto;
 }
 
+/* ── CARD (Udemy course card) ── */
 .card {
   background: var(--card);
-  padding: 25px;
-  border-radius: 10px;
+  border-radius: var(--radius);
   text-align: center;
-  transition: 0.3s;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-light);
+  padding: 0;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Udemy-style course thumbnail (gradient banner) */
+.card::before {
+  content: '';
+  display: block;
+  height: 162px;
+  background: linear-gradient(135deg, #a435f0 0%, #6c1db5 100%);
+}
+
+.features .card:nth-child(2)::before {
+  background: linear-gradient(135deg, #5624d0 0%, #401b9c 100%);
+}
+
+.features .card:nth-child(3)::before {
+  background: linear-gradient(135deg, #ce2b8f 0%, #a02070 100%);
+}
+
+.pricing .card:nth-child(2)::before {
+  background: linear-gradient(135deg, #5624d0 0%, #401b9c 100%);
+}
+
+.pricing .card:nth-child(3)::before {
+  background: linear-gradient(135deg, #ce2b8f 0%, #a02070 100%);
+}
+
+.pricing .card:nth-child(4)::before {
+  background: linear-gradient(135deg, #1e1d1f 0%, #3d3d3d 100%);
+}
+
+.card h3 {
+  margin: 20px 16px 8px;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.card p {
+  margin: 0 16px 16px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .price {
-  font-size: 28px;
-  color: var(--primary);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 16px;
 }
 
-/* FOOTER */
+.card .btn {
+  margin: 0 16px 20px;
+  width: calc(100% - 32px);
+  box-sizing: border-box;
+}
+
+/* ── FOOTER ── */
 .footer {
   text-align: center;
-  padding: 20px;
-  background: #1c1d1f;
-  color: white;
-  margin-top: 40px;
+  padding: 24px;
+  background: var(--footer-bg);
+  color: rgba(255,255,255,0.65);
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+/* Dark mode toggle icon */
+.nav a:last-child {
+  font-size: 18px;
+  padding: 8px 10px;
 }
 </style>
 </head>
@@ -135,14 +265,14 @@ body {
 <!-- HEADER -->
 <div class="header">
   <div class="logo-container">
-    <img src="logo.png" alt="Maram Logo">
+    <img src="assets/img/logo.png" alt="Maram Logo">
     <span>Maram English Academy</span>
   </div>
 
   <div class="nav">
     <a onclick="showPage('home')">Home</a>
     <a onclick="showPage('subscriptions')">Subscriptions</a>
-    <a onclick="toggleDark()">🌙</a>
+    <a id="themeToggle" onclick="toggleDark()">🌙</a>
   </div>
 </div>
 
@@ -183,25 +313,25 @@ body {
     <div class="card">
       <h3>Starter Course</h3>
       <div class="price">$10</div>
-      <button class="btn" onclick="pay()">Pay</button>
+      <button class="btn" onclick="pay()">Buy</button>
     </div>
 
     <div class="card">
       <h3>Standard Course</h3>
       <div class="price">$50</div>
-      <button class="btn" onclick="pay()">Pay</button>
+      <button class="btn" onclick="pay()">Buy</button>
     </div>
 
     <div class="card">
       <h3>Premium Course</h3>
       <div class="price">$100</div>
-      <button class="btn" onclick="pay()">Pay</button>
+      <button class="btn" onclick="pay()">Buy</button>
     </div>
 
     <div class="card">
       <h3>Ultimate Course</h3>
       <div class="price">$250</div>
-      <button class="btn" onclick="pay()">Pay</button>
+      <button class="btn" onclick="pay()">Buy</button>
     </div>
   </div>
 </div>
@@ -217,11 +347,13 @@ function showPage(page) {
 }
 
 function pay() {
-  window.location.href = "https://www.paypal.com";
+  window.location.href = "https://wa.me/message/XHRG4VHBTBZ4H1";
 }
 
 function toggleDark() {
   document.body.classList.toggle("dark");
+  document.getElementById("themeToggle").textContent =
+    document.body.classList.contains("dark") ? "☀️" : "🌙";
 }
 </script>
 
