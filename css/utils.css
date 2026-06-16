@@ -1,0 +1,307 @@
+/* ── Utility Classes ── */
+.vertically-centered {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.horizontally-centered {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.centered {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+/* ── Base Styles ── */
+body {
+	background-color: rgb(25, 25, 25);
+	color: #FFFFFF;
+	min-height: 100%;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+/* ── Fonts ── */
+@font-face {
+	font-family: 'UbuntuMono';
+	src: url('../assets/fonts/UbuntuMono.ttf') format('truetype');
+}
+
+html, body {
+	font-family: 'UbuntuMono', monospace !important;
+}
+
+/* ── Frosted Glass Effect ── */
+.frosted-glass {
+	background-color: rgba(36, 36, 36, 0.7490196078431373) !important;
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	z-index: 1000;
+}
+
+/* ── Navbar ── */
+.navbar {
+	border-bottom: 1px solid rgba(60, 60, 60, 0.7490196078431373);
+}
+
+.navbar > .container-fluid {
+	padding-left: 35px;
+	padding-right: 35px;
+}
+
+@media (min-width: 992px) {
+	.navbar > .container-fluid {
+		padding-left: 100px;
+		padding-right: 100px;
+	}
+}
+
+.navbar-nav li {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.navbar-nav a {
+	font-size: 18px;
+}
+
+.navbar-nav a:hover {
+	color: #DDDDDD !important;
+}
+
+.navbar-brand {
+	font-weight: 700;
+	font-size: 22px;
+	letter-spacing: -0.02em;
+}
+
+/* ── Buttons ── */
+.purchase > p {
+	font-size: 18px;
+	margin: 0;
+}
+
+.btn-primary {
+	background: linear-gradient(135deg, #2164F3 0%, #66B2F9 100%);
+	border: none;
+	padding: 10px 28px;
+	font-weight: 600;
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+	background: linear-gradient(135deg, #1a52d4 0%, #4a9ae0 100%);
+	transform: translateY(-2px);
+	box-shadow: 0 4px 16px rgba(33, 100, 243, 0.4);
+}
+
+.btn-outline-primary {
+	border: 2px solid #2164F3;
+	color: #66B2F9;
+	background: transparent;
+	transition: all 0.2s;
+}
+
+.btn-outline-primary:hover {
+	background: linear-gradient(135deg, #2164F3 0%, #66B2F9 100%);
+	border-color: transparent;
+	color: #fff;
+	transform: translateY(-2px);
+}
+
+/* ── Gradient Text Effects ── */
+.blue-to-cyan-text {
+	background: linear-gradient(75deg,
+	#2164F3 0%,
+	#66B2F9 50%,
+	#AAFFFF 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.sky-to-blue-text {
+	background: linear-gradient(75deg,
+	#87CEEB 0%,
+	#61B2FB 50%,
+	#1E90FF 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+/* ── Overlay for Images ── */
+.overlay-above-image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	box-sizing: border-box;
+}
+
+/* ── Full Width ── */
+.full-width {
+	width: 100%;
+}
+
+/* ── Footer ── */
+.footer-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+}
+
+.footer-socials {
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+}
+
+.footer-branding {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 30px;
+}
+
+.social-media-icon {
+	text-decoration: none;
+	transition: opacity 0.2s;
+}
+
+.social-media-icon:hover {
+	opacity: 0.8;
+}
+
+/* ── Dark Mode Cards ── */
+.dark-mode-card {
+	background-color: #2a2a2a !important;
+	color: #fff !important;
+	border: 1px solid rgba(255, 255, 255, 0.08) !important;
+	transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.dark-mode-card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode-card .card-header {
+	background-color: #333 !important;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dark-mode-card .list-unstyled li p {
+	color: #ccc;
+}
+
+.dark-mode-card .text-muted {
+	color: #999 !important;
+}
+
+/* ── Language Dropdown ── */
+.lang-dropdown {
+	margin-left: 20px;
+}
+
+.lang-dropdown .btn-secondary {
+	background-color: rgba(108, 117, 125, 0.6);
+	border: none;
+}
+
+.lang-dropdown .btn-secondary:hover {
+	background-color: rgba(108, 117, 125, 0.8);
+}
+
+.lang-dropdown .dropdown-menu {
+	background-color: #333;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lang-dropdown .dropdown-item {
+	color: #fff;
+}
+
+.lang-dropdown .dropdown-item:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+	color: #fff;
+}
+
+/* ── Section Separators ── */
+.separator {
+	margin-top: -60px;
+	margin-bottom: 60px;
+	border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ── Responsive ── */
+@media (max-width: 991px) {
+	.lang-dropdown {
+		margin-left: 0;
+		margin-top: 10px;
+	}
+
+	.navbar-nav {
+		margin-top: 10px;
+	}
+
+	.purchase {
+		margin-top: 10px;
+	}
+
+	.footer-content {
+		flex-direction: column;
+		gap: 15px;
+		text-align: center;
+	}
+}
+
+@media (max-width: 768px) {
+	.navbar > .container-fluid {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	.footer-branding {
+		flex-direction: column;
+		gap: 10px;
+	}
+}
+
+/* ── Hero Carousel ── */
+.hero-carousel {
+	width: 100%;
+	max-width: 1100px;
+	margin: 0 auto;
+}
+
+.hero-carousel .carousel-item img {
+	object-fit: cover;
+	border-radius: 12px;
+}
+
+/* ── Feature Icon Box ── */
+.icon-square {
+	width: 48px;
+	height: 48px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+
+.features-icon {
+	font-size: 24px;
+	margin: 8px;
+}
+
+/* ── General Card ── */
+.card {
+	transition: transform 0.3s, box-shadow 0.3s;
+}
