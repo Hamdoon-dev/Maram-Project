@@ -527,65 +527,129 @@ body {
   transform: translateY(0);
 }
 
-/* ── CARD GRID (Udemy-style course grid) ── */
-.features, .pricing {
+/* ── SUBSCRIPTION PLANS ── */
+.plans-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px,1fr));
-  gap: 24px;
-  padding: 0 24px 56px;
-  max-width: var(--content-max);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
-/* ── CARD (Udemy course card) ── */
-.card {
+.plan-card {
+  display: flex;
+  flex-direction: column;
   background: var(--card);
   border-radius: var(--radius);
-  text-align: center;
-  overflow: hidden;
-  transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: var(--shadow-sm);
   border: 1px solid var(--border-light);
-  padding: 0;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  cursor: pointer;
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+.plan-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(164, 53, 240, 0.15);
+  border-color: var(--primary);
 }
 
-/* Pricing card thumbnail image */
-.pricing .card img {
-  width: 100%;
-  height: 162px;
-  object-fit: cover;
-  display: block;
+.plan-banner {
+  padding: 28px 24px 20px;
+  background: linear-gradient(135deg, #a435f0 0%, #6c1db5 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
 }
 
-.card h3 {
-  margin: 20px 16px 8px;
-  font-size: 17px;
+.plan-card:nth-child(2) .plan-banner {
+  background: linear-gradient(135deg, #5624d0 0%, #401b9c 100%);
+}
+
+.plan-card:nth-child(3) .plan-banner {
+  background: linear-gradient(135deg, #ce2b8f 0%, #a02070 100%);
+}
+
+.plan-emoji {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.plan-type {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+}
+
+.plan-badge {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(4px);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.plan-card h3 {
+  margin: 20px 24px 4px;
+  font-size: 20px;
   font-weight: 700;
 }
 
-.card p {
-  margin: 0 16px 16px;
-  color: var(--text-secondary);
+.plan-details {
+  padding: 12px 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.plan-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-size: 14px;
   line-height: 1.5;
+  color: var(--text-secondary);
 }
 
-.price {
-  font-size: 22px;
-  font-weight: 700;
+.detail-icon {
+  flex-shrink: 0;
+  width: 28px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.plan-detail-item strong {
   color: var(--text);
-  margin: 0 0 16px;
+  font-weight: 600;
 }
 
-.card .btn {
-  margin: 0 16px 20px;
-  width: calc(100% - 32px);
-  box-sizing: border-box;
+.plan-cta {
+  display: block;
+  margin: 20px 24px 24px;
+  padding: 11px 0;
+  text-align: center;
+  background: var(--primary);
+  color: white;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: background 0.2s;
+}
+
+.plan-card:hover .plan-cta {
+  background: var(--primary-dark);
 }
 
 /* ── LIGHTBOX ── */
@@ -825,37 +889,96 @@ body.lightbox-open {
 <!-- SUBSCRIPTIONS -->
 <div id="subscriptions" class="section">
   <div class="hero">
-    <h1>Our Courses</h1>
-    <p>Select your plan</p>
+    <h1>English Course <span class="highlight">Subscription Plans</span></h1>
+    <p>Choose the plan that fits your learning goals and start your journey today</p>
   </div>
 
-  <div class="pricing">
-    <div class="card">
-      <img src="assets/img/starter.png" alt="Starter Course">
-      <h3>Starter Course</h3>
-      <div class="price">$10</div>
-      <button class="btn" onclick="pay()">Buy</button>
-    </div>
+  <div class="content-section" style="padding-top: 0;">
+    <div class="plans-grid">
 
-    <div class="card">
-      <img src="assets/img/standard.png" alt="Standard Course">
-      <h3>Standard Course</h3>
-      <div class="price">$50</div>
-      <button class="btn" onclick="pay()">Buy</button>
-    </div>
+      <a class="plan-card" href="https://wa.me/message/XHRG4VHBTBZ4H1" target="_blank" rel="noopener noreferrer">
+        <div class="plan-banner">
+          <div class="plan-emoji">👥</div>
+          <div class="plan-type">Small Group</div>
+        </div>
+        <h3>Single Level Course</h3>
+        <div class="plan-details">
+          <div class="plan-detail-item">
+            <span class="detail-icon">👤</span>
+            <span>Maximum <strong>2 students</strong> per class</span>
+          </div>
+          <div class="plan-detail-item">
+            <span class="detail-icon">📅</span>
+            <span>Duration: <strong>1.5 months</strong></span>
+          </div>
+          <div class="plan-detail-item">
+            <span class="detail-icon">📖</span>
+            <span><strong>13 lessons</strong> total</span>
+          </div>
+          <div class="plan-detail-item">
+            <span class="detail-icon">⏱</span>
+            <span>Each lesson is <strong>1 full hour</strong></span>
+          </div>
+        </div>
+        <span class="plan-cta">Inquire Now →</span>
+      </a>
 
-    <div class="card">
-      <img src="assets/img/premium.png" alt="Premium Course">
-      <h3>Premium Course</h3>
-      <div class="price">$100</div>
-      <button class="btn" onclick="pay()">Buy</button>
-    </div>
+      <a class="plan-card" href="https://wa.me/message/XHRG4VHBTBZ4H1" target="_blank" rel="noopener noreferrer">
+        <div class="plan-banner">
+          <div class="plan-emoji">👑</div>
+          <div class="plan-type">One-to-One</div>
+          <span class="plan-badge">Popular</span>
+        </div>
+        <h3>VIP Private Course</h3>
+        <div class="plan-details">
+          <div class="plan-detail-item">
+            <span class="detail-icon">👤</span>
+            <span><strong>One-to-one</strong> learning (Teacher & Student only)</span>
+          </div>
+          <div class="plan-detail-item">
+            <span class="detail-icon">📅</span>
+            <span>Duration: <strong>1.5 to 2 months</strong></span>
+          </div>
+          <div class="plan-detail-item">
+            <span class="detail-icon">📖</span>
+            <span><strong>15 lessons</strong> total</span>
+          </div>
+          <div class="plan-detail-item">
+            <span class="detail-icon">⏱</span>
+            <span>Each lesson is <strong>1 full hour</strong></span>
+          </div>
+        </div>
+        <span class="plan-cta">Inquire Now →</span>
+      </a>
 
-    <div class="card">
-      <img src="assets/img/ultimate.png" alt="Ultimate Course">
-      <h3>Ultimate Course</h3>
-      <div class="price">$250</div>
-      <button class="btn" onclick="pay()">Buy</button>
+      <a class="plan-card" href="https://wa.me/message/XHRG4VHBTBZ4H1" target="_blank" rel="noopener noreferrer">
+        <div class="plan-banner">
+          <div class="plan-emoji">🎯</div>
+          <div class="plan-type">Complete Program</div>
+          <span class="plan-badge">Best Value</span>
+        </div>
+        <h3>Complete English Course</h3>
+        <div class="plan-details">
+          <div class="plan-detail-item">
+            <span class="detail-icon">📅</span>
+            <span>Duration: <strong>4 months</strong></span>
+          </div>
+          <div class="plan-detail-item">
+            <span class="detail-icon">📅</span>
+            <span><strong>3 lessons</strong> per week</span>
+          </div>
+          <div class="plan-detail-item">
+            <span class="detail-icon">📖</span>
+            <span><strong>48–50 lessons</strong> in total</span>
+          </div>
+          <div class="plan-detail-item">
+            <span class="detail-icon">⏱</span>
+            <span>Each lesson is <strong>1 full hour</strong></span>
+          </div>
+        </div>
+        <span class="plan-cta">Inquire Now →</span>
+      </a>
+
     </div>
   </div>
 </div>
@@ -874,10 +997,6 @@ body.lightbox-open {
 function showPage(page) {
   document.querySelectorAll(".section").forEach(sec => sec.classList.remove("active"));
   document.getElementById(page).classList.add("active");
-}
-
-function pay() {
-  window.location.href = "https://wa.me/message/XHRG4VHBTBZ4H1";
 }
 
 function toggleDark() {
