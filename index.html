@@ -300,6 +300,91 @@ body {
   line-height: 1.7;
 }
 
+/* ── INTERNATIONAL CONVERSATION PROGRAMS ── */
+.conversation-intro {
+  max-width: 800px;
+  margin: 0 auto 36px;
+  text-align: center;
+}
+
+.conversation-intro p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.conversation-benefits {
+  max-width: 800px;
+  margin: 0 auto 36px;
+}
+
+.conversation-benefits h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 20px;
+  text-align: center;
+  color: var(--text);
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--card);
+  border-radius: 8px;
+  padding: 14px 18px;
+  border: 1px solid var(--border-light);
+  font-size: 14px;
+  font-weight: 500;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.benefit-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.benefit-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.conversation-outro {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.conversation-outro p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin: 0 0 16px;
+}
+
+.conversation-outro .cta-accent {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0;
+}
+
 /* ── VISION BLOCK ── */
 .vision-block {
   background: linear-gradient(135deg, var(--primary) 0%, #6c1db5 100%);
@@ -630,6 +715,14 @@ body.lightbox-open {
         <img src="assets/photos/monalisa.jpeg" alt="Maram English Academy">
         <div class="gallery-label">📸 Our Community</div>
       </div>
+      <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+        <img src="assets/photos/trumpino.jpeg" alt="Maram English Academy">
+        <div class="gallery-label">📸 Fun Learning Moments</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+        <img src="assets/photos/kasim.jpeg" alt="Maram English Academy">
+        <div class="gallery-label">📸 Classroom Highlights</div>
+      </div>
     </div>
   </div>
 
@@ -679,6 +772,33 @@ body.lightbox-open {
         <h3>VIP Private Courses</h3>
         <p>Personalized one-to-one lessons tailored to each student's goals, learning style, and schedule.</p>
       </div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL CONVERSATION PROGRAMS -->
+  <div class="content-section">
+    <h2>International <span class="highlight">Conversation Programs</span></h2>
+    <div class="section-divider"></div>
+
+    <div class="conversation-intro">
+      <p>At Maram English Academy, we believe that language is best learned through real communication. Our International Conversation Programs provide students with unique opportunities to practice English with people from different countries and cultures.</p>
+    </div>
+
+    <div class="conversation-benefits">
+      <h3>These interactive sessions help learners:</h3>
+      <div class="benefits-grid">
+        <div class="benefit-item"><span class="benefit-icon">✓</span> Improve speaking fluency and confidence</div>
+        <div class="benefit-item"><span class="benefit-icon">✓</span> Develop real-life communication skills</div>
+        <div class="benefit-item"><span class="benefit-icon">✓</span> Learn about different cultures and perspectives</div>
+        <div class="benefit-item"><span class="benefit-icon">✓</span> Enhance pronunciation and listening abilities</div>
+        <div class="benefit-item"><span class="benefit-icon">✓</span> Build confidence in international conversations</div>
+        <div class="benefit-item"><span class="benefit-icon">✓</span> Use English naturally in meaningful discussions</div>
+      </div>
+    </div>
+
+    <div class="conversation-outro">
+      <p>Our students participate in engaging conversations, cultural exchange activities, group discussions, and special events with international guests, creating an exciting and authentic English-learning experience.</p>
+      <p class="cta-accent">Through these programs, students move beyond textbooks and gain the confidence to communicate with the world.</p>
     </div>
   </div>
 
